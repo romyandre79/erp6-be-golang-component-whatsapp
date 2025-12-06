@@ -1,9 +1,9 @@
 {
     "componentname": "WhatsApp",
     "componenttitle": "WhatsApp Cloud API",
-    "componentcategoryid": 16,
+    "componentcategoryid": 7,
     "componentclass": "whatsapp",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "createdby": "Prisma Data Abadi",
     "input": 1,
     "output": 1,
