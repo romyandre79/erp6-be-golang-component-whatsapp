@@ -1,0 +1,61 @@
+{
+    "componentname": "WhatsApp",
+    "componenttitle": "WhatsApp Cloud API",
+    "componentcategoryid": 16,
+    "componentclass": "whatsapp",
+    "version": "0.0.2",
+    "createdby": "Prisma Data Abadi",
+    "input": 1,
+    "output": 1,
+    "details": [
+        {
+            "detailtype": "password",
+            "lable": "Access Token",
+            "inputtype": "password",
+            "inputname": "token",
+            "inputdesc": "Permanent or System User Token",
+            "order": 1
+        },
+        {
+            "detailtype": "text",
+            "lable": "Phone Number ID",
+            "inputtype": "text",
+            "inputname": "phone_number_id",
+            "inputdesc": "WhatsApp Phone Number ID",
+            "order": 2
+        },
+        {
+            "detailtype": "text",
+            "lable": "Recipient Phone",
+            "inputtype": "text",
+            "inputname": "to",
+            "inputdesc": "Recipient Phone Number (e.g. 62812345678)",
+            "order": 3
+        },
+        {
+            "detailtype": "select",
+            "lable": "Action",
+            "inputtype": "select",
+            "inputname": "action",
+            "inputdesc": "Message Type",
+            "order": 4,
+            "options": "send_text,send_template"
+        },
+        {
+            "detailtype": "textarea",
+            "lable": "Message / Template Name",
+            "inputtype": "textarea",
+            "inputname": "message",
+            "inputdesc": "Text content or Template Name",
+            "order": 5
+        },
+        {
+            "detailtype": "text",
+            "lable": "Language Code",
+            "inputtype": "text",
+            "inputname": "language",
+            "inputdesc": "Template Language Code (default en_US)",
+            "order": 6
+        }
+    ]
+}
