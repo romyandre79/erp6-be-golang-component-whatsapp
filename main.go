@@ -83,21 +83,23 @@ func main() {
 	}
 
 	// Validate required parameters
-	if token == "" {
-		json.NewEncoder(os.Stdout).Encode(Output{Error: "token is required"})
-		return
-	}
-	if phoneNumberID == "" {
-		json.NewEncoder(os.Stdout).Encode(Output{Error: "phone_number_id is required"})
-		return
-	}
-	if to == "" {
-		json.NewEncoder(os.Stdout).Encode(Output{Error: "to is required"})
-		return
-	}
-	if message == "" {
-		json.NewEncoder(os.Stdout).Encode(Output{Error: "message (text or template name) is required"})
-		return
+	if action != "handle_webhook" {
+		if token == "" {
+			json.NewEncoder(os.Stdout).Encode(Output{Error: "token is required"})
+			return
+		}
+		if phoneNumberID == "" {
+			json.NewEncoder(os.Stdout).Encode(Output{Error: "phone_number_id is required"})
+			return
+		}
+		if to == "" {
+			json.NewEncoder(os.Stdout).Encode(Output{Error: "to is required"})
+			return
+		}
+		if message == "" {
+			json.NewEncoder(os.Stdout).Encode(Output{Error: "message (text or template name) is required"})
+			return
+		}
 	}
 
 	url := fmt.Sprintf("https://graph.facebook.com/v21.0/%s/messages", phoneNumberID)
@@ -118,6 +120,14 @@ func main() {
 				Code: language,
 			},
 		}
+	case "handle_webhook":
+		// Echo success
+		json.NewEncoder(os.Stdout).Encode(Output{Result: map[string]string{
+			"status":  "success",
+			"source":  "whatsapp",
+			"message": "Webhook received. Check logs/output for details.",
+		}})
+		return
 	default:
 		json.NewEncoder(os.Stdout).Encode(Output{Error: "invalid action"})
 		return
